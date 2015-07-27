@@ -6,9 +6,9 @@ used to x-ray the friendly alien and reveal its hidden structure.
 # Redditors who commented to this subreddit also commented to...
 
 This simple idea is the core of the current recommendation website. Despite
-its simplicity it yields amazing results.
+the simplicity it yields amazing results.
 
-Before you read any further, go ahead and check for yourself:
+Before you read any further, please go ahead and check for yourself:
 
 * [Subreddits related to /r/programming](http://anvaka.github.io/redsim/#?q=programming)
 * [Subreddits related to /r/Games](http://anvaka.github.io/redsim/#?q=Games)
