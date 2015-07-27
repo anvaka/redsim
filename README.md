@@ -26,7 +26,7 @@ If you post to subreddit `A` and `C` very often - it doesn't necessary mean that
 `A` and `C` are related. But if there are thousands of people posting to both
 `A` and `C` we could suspect that maybe subreddits are related.
 
-Of course sometimes `A` is way more popular than `C`, and we need to take this
+Of course sometimes `A` is way more popular than `C`, and we need to take that
 into account. Let's consider three subreddits:
 
 * `A` - has 1,000 subscribers
@@ -43,7 +43,7 @@ Only 10% of `B` has posted to `A`. While 100% of `C` has posted to `A`.
 This means `C` has very high "relationship index" with `A`.
 
 Turns out this "relationship index" has many names and forms. One of the
-simplest forms is called [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index)
+simplest forms is called [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index) (or similarity).
 
 ### Jaccard similarity
 
