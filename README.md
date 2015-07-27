@@ -49,8 +49,8 @@ simplest forms is called [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_i
 
 To find how much subreddits `A` and `B` are similar with each other, all we need to do is:
 
-1. Find how many subscribers who posted to `A` has also posted to `B`
-2. Find how many subscribers has posted to `A` or `B`.
+1. Find how many subscribers who posted to `A` has also posted to `B` (intersection of `A` and `B`).
+2. Find how many subscribers has posted to `A` or `B` (union of `A` and `B`).
 3. Divide `1` by `2` and we'll get Jaccard similarity.
 
 In the example above. Jaccard similarity of `A` and `C` is: `J(A, C) = 100/1000 = 0.1`,
