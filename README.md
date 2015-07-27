@@ -22,11 +22,11 @@ exactly does it work?
 Recently `/u/Stuck_In_the_Matrix` publicly released [reddit's ~1.7 billion comments dataset](https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/).
 Each record contains information about author's name and target subreddit.
 
-If you post to subreddit `A` and `B` very often - it doesn't necessary mean that
-`A` and `B` are related. But if there are thousands of people posting to both
-`A` and `B` we could suspect that maybe subreddits are related.
+If you post to subreddit `A` and `C` very often - it doesn't necessary mean that
+`A` and `C` are related. But if there are thousands of people posting to both
+`A` and `C` we could suspect that maybe subreddits are related.
 
-Of course sometimes `A` is way more popular than `B`, and we need to take this
+Of course sometimes `A` is way more popular than `C`, and we need to take this
 into account. Let's consider three subreddits:
 
 * `A` - has 1,000 subscribers
