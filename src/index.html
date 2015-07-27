@@ -23,6 +23,7 @@
             <h3>Find related subreddits</h3>
             <div class='input-group'>
               <input type='text'
+                    id='search-input'
                     ng-focus='showListOfPackages=true;'
                     typeahead="sub for sub in getTypeahead($viewValue)"
                     typeahead-on-select='showRecommendation()'

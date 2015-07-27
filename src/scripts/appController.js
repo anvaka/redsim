@@ -38,6 +38,11 @@ function AppController($scope, $http, $q, $location) {
   function setReady() {
     $scope.recommendationsReady = true;
     if (!$scope.$$phase) $scope.$digest();
+    // TODO: This is bad!
+    setTimeout(function() {
+      var search = document.getElementById('search-input');
+      if (search) search.focus();
+    }, 20)
   }
 }
 
