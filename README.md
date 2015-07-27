@@ -43,14 +43,14 @@ Only 10% of `B` has posted to `A`. While 100% of `C` has posted to `A`.
 This means `C` has very high "relationship index" with `A`.
 
 Turns out this "relationship index" has many names and forms. One of the
-simplest forms is called [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index) (or similarity).
+simplest forms is called [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index) (similarity).
 
 ### Jaccard similarity
 
 To find how much subreddits `A` and `B` are similar with each other, all we need to do is:
 
-1. Find how many subscribers who posted to `A` also posted to `B`
-2. Find how many subscribers posted to `A` or to `B`.
+1. Find how many subscribers who posted to `A` has also posted to `B`
+2. Find how many subscribers has posted to `A` or `B`.
 3. Divide `1` by `2` and we'll get Jaccard similarity.
 
 In the example above. Jaccard similarity of `A` and `C` is: `J(A, C) = 100/1000 = 0.1`,
@@ -62,7 +62,7 @@ This makes `C` two times more similar to `A` than `B`.
 
 This approach works extremely well for subreddits with less than 1,000,000 subscribers.
 For more popular subreddits results are getting saturated by popularity of those
-subreddits. If you have an idea how to fix this please let me know :).
+subreddits. If you have an idea how to fix this please [let me know :)](https://github.com/anvaka/redsim/issues/new).
 
 # Technical details
 
@@ -71,8 +71,11 @@ public comments. This gives more than 50,000,000 `user ⇄ subreddit` records.
 Which translates to almost 50,000 unique subreddits.
 
 Each record is stored into redis database in these [50 lines of code](https://github.com/anvaka/reddata/blob/db6489e60b96bf3b1d1ef841786b5cd45708fe28/lib/redisClient.js#L81).
+And then I'm using [SINTERSTORE](http://redis.io/commands/sinterstore) and
+[SUNIONSTORE](http://redis.io/commands/sunionstore) to compute intersection
+and union of subreddits ([code](https://github.com/anvaka/reddata/blob/db6489e60b96bf3b1d1ef841786b5cd45708fe28/lib/redisClient.js#L81)). 
 
-I'm using the most straightforward brute-force approach to compute similarities.
+This is the most straightforward brute-force approach to compute similarities.
 It took almost 70 CPU hours of my old MacBookPro friend to compare all subreddits
 with other.
 
