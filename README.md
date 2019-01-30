@@ -1,5 +1,8 @@
 # reddit discovery
 
+**NOTE:** There is a new version of a project with a similar purpose and more
+recent datra. See here: https://anvaka.github.io/sayit/
+
 Your comments on reddit are not only what makes reddit fun. They can also be
 used to x-ray the friendly alien and reveal its hidden structure.
 
