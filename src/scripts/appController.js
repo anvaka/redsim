@@ -16,7 +16,7 @@ function AppController($scope, $http, $q, $location) {
   };
 
   $scope.showRecommendation = function () {
-    $location.search('q', $scope.searchInput).replace();
+    $location.search('q', $scope.searchInput.replace("r/", "")).replace();
   }
 
   $scope.$on('$locationChangeSuccess', function() {
