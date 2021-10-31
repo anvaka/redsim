@@ -1,5 +1,11 @@
 @import "../../node_modules/bootstrap/less/bootstrap.less";
 
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
 .share {
   position: absolute;
   right: 12px;
@@ -20,9 +26,13 @@
   }
 }
 @media only screen and (max-width : 775px) {
+  .container {
+    padding-bottom: 24px;
+  }
   .share {
-    bottom: 0;
-    right: 0;
+    position: relative;
+    bottom: initial;
+    right: initial;
     font-size: 12px;
     width: 100%;
     text-align: right;

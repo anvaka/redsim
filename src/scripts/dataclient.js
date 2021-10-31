@@ -3,7 +3,7 @@ var eventify = require('ngraph.events');
 module.exports = dataClient;
 
 function dataClient($http, $q) {
-  // Kick off graph download immediatly
+  // Kick off graph download immediately
   $http.get('data/labels.json')
     .then(addLabelsToGraph);
 
@@ -55,7 +55,7 @@ function dataClient($http, $q) {
   }
 
   function byRank(x, y) {
-    return y.data - x.data;
+    return x.data - y.data;
   }
 
   function searchSubreddit(query) {
@@ -106,10 +106,9 @@ function dataClient($http, $q) {
       if (id < 0) {
         lastFromId = -id;
       } else {
-        // need to unpack. Higher 16 bits reserved for rank, lower - for
-        // node id
-        var otherId = id & 0xffff;
-        var rank = (id >> 16) & 0xffff;
+        // need to unpack.
+        var otherId = (id & 0xffffff00) >> 8;
+        var rank = (id & 0xff);
         graph.addLink(lastFromId - 1, otherId - 1, rank);
       }
     }

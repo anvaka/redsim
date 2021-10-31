@@ -18,16 +18,16 @@ var paths = {
   markup: ['src/*.html'],
   styles: { paths: [ path.join(__dirname, 'src/styles') ] }
 };
-
-gulp.task('default', ['build', 'startStaticServer', 'watchChanges']);
-gulp.task('build', ['makeDist', 'runBrowserify', 'copyDist', 'compileLess']);
-
 gulp.task('runBrowserify', runBrowserify);
 gulp.task('compileLess', compileLess);
 gulp.task('makeDist', makeDist);
 gulp.task('copyDist', copyDist);
 gulp.task('watchChanges', watchChanges);
 gulp.task('startStaticServer', startStaticServer);
+
+gulp.task('build', gulp.series(['makeDist', 'runBrowserify', 'copyDist', 'compileLess']));
+gulp.task('default', gulp.series(['build', 'startStaticServer', 'watchChanges']));
+
 
 function runBrowserify() {
   var fs = require('fs');
@@ -38,7 +38,7 @@ function runBrowserify() {
     .on('error', function (err) {
         gutil.log(gutil.colors.red('Failed to browserify'), gutil.colors.yellow(err.message));
     });
-  bundle.pipe(fs.createWriteStream(path.join(__dirname + '/dist/bundle.js')));
+  return bundle.pipe(fs.createWriteStream(path.join(__dirname + '/dist/bundle.js')));
 }
 
 function compileLess() {
@@ -47,7 +47,7 @@ function compileLess() {
     gutil.log(gutil.colors.red('Failed to compile less: '), gutil.colors.yellow(err.message));
   });
 
-  gulp.src('src/styles/style.less')
+  return gulp.src('src/styles/style.less')
     .pipe(less)
     .pipe(gulp.dest('dist/styles'));
 }
@@ -60,6 +60,7 @@ function makeDist() {
   if (!fs.existsSync('./dist/data')) {
     fs.mkdirSync('./dist/data');
   }
+  return Promise.resolve();
 }
 
 function copyDist() {
@@ -71,7 +72,7 @@ function copyDist() {
   gulp.src('./node_modules/bootstrap/fonts/*')
       .pipe(gulp.dest('./dist/fonts/'));
 
-  gulp.src('./src/data/*')
+  return gulp.src('./src/data/*')
       .pipe(gulp.dest('./dist/data'));
 }
 

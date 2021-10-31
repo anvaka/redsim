@@ -55,7 +55,7 @@
               <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
                 {{sub}}
               </a>
-              <a href='#' ng-href='#?q={{sub}}' class='col-md-1'
+              <a href='#' ng-href='#!?q={{sub}}' class='col-md-1'
                   title='Find related subreddits'>
                 <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
               </a>
@@ -69,17 +69,19 @@
             <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
               {{sub}}
             </a>
-            <a href='#' ng-href='#?q={{sub}}' class='col-md-1'
+            <a href='#' ng-href='#!?q={{sub}}' class='col-md-1'
                 title='Find related subreddits'>
               <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
             </a>
           </div>
         </div>
       </div>
-    </div>
-    <div class='share' ng-controller='ShareController'>
-      <p><a href="https://github.com/anvaka/redsim">About</a></p>
-      <p><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fanvaka%2Fredsim" ng-click='share("twitter", $event)'>share to twitter</a></p>
+
+      <div class='share' ng-controller='ShareController'>
+        <p><a href="https://github.com/anvaka/redsim">About</a></p>
+        <p><a href="https://anvaka.github.io/map-of-reddit/">Map of reddit</a></p>
+        <p><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fanvaka%2Fredsim" ng-click='share("twitter", $event)'>share to twitter</a></p>
+      </div>
     </div>
     <script src='bundle.js' type="text/javascript" charset="utf-8">
     </script>
