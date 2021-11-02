@@ -68,6 +68,10 @@ subreddits. If you have an idea how to fix this please [let me know :)](https://
 
 # Technical details
 
+Note: The details below outline my old procedure. I didn't use it to build
+the latest snapshot, which is based on 150 million unique comments. Still keeping
+it here for reference.
+
 To compute similarity between subreddits I downloaded only one month worth of
 public comments. This gives more than 50,000,000 `user ⇄ subreddit` records.
 Which translates to almost 50,000 unique subreddits.
