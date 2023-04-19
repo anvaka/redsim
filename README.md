@@ -12,9 +12,9 @@ the simplicity it yields amazing results.
 
 Before you read any further, please go ahead and check for yourself:
 
-* [Subreddits related to /r/programming](//anvaka.github.io/redsim/#?q=programming)
-* [Subreddits related to /r/Games](//anvaka.github.io/redsim/#?q=Games)
-* [Subreddits related to /r/linux](//anvaka.github.io/redsim/#?q=linux)
+* [Subreddits related to /r/programming](https://anvaka.github.io/redsim/#!?q=programming)
+* [Subreddits related to /r/Games](https://anvaka.github.io/redsim/#!?q=Games)
+* [Subreddits related to /r/linux](https://anvaka.github.io/redsim/#!?q=linux)
 
 It works really well for subreddits with under 1 million subscribers. But how
 exactly does it work?
