@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXT6313TGG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TXT6313TGG');
+</script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>similar reddits</title>
+    <meta name="Description" content="Similar reddits helps you discover other related subreddits.">
+    <meta name="keywords" content="similar subreddits, reddit, similar, similarities, discover" />
+    <meta name="author" content="Andrei Kashcha">
+    <meta name="title" content="similar reddits" />
+    <style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+  </head>
+  <body ng-controller='AppController'>
+    <div class="container">
+
+      <div class="row" class='ng-cloak' ng-hide='recommendationsReady'>
+        <h2>Initializing recommendations...</h2>
+      </div>
+
+      <div class='row' ng-show='recommendationsReady'>
+        <div class='search col-xs-12 col-sm-6 col-md-4'>
+          <form class='search-form' role='search' ng-submit='showRecommendation()'>
+            <h3>Find related subreddits</h3>
+            <div class='input-group'>
+              <input type='text'
+                    id='search-input'
+                    ng-focus='showListOfPackages=true;'
+                    typeahead="sub for sub in getTypeahead($viewValue)"
+                    typeahead-on-select='showRecommendation()'
+                    ng-model='searchInput'
+                    autofocus
+                    class='form-control no-shadow'
+                    placeholder='Enter subreddit name'>
+                <span class='input-group-btn'>
+                  <button class='btn' tabIndex='-1' type='submit'>
+                    <span class='glyphicon glyphicon-search'></span>
+                  </button>
+                </span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row" class='ng-cloak' ng-show='hasResults'>
+        <div class='col-xs-12 col-sm-5 col-md-4' ng-show='hasTo'>
+          <h4>Redditors who read <a href='#' ng-href='//www.reddit.com/r/{{searchInput}}' target='_blank'>/r/{{searchInput}}</a> also read:</h4>
+          <div class="list-group">
+            <div ng-repeat='sub in to' class='row list-group-item'>
+              <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
+                {{sub}}
+              </a>
+              <a href='#' ng-href='#!?q={{sub}}' class='col-md-1'
+                  title='Find related subreddits'>
+                <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-xs-12 col-sm-5 col-md-4' ng-class='{ "col-sm-offset-1": hasTo, "col-md-offset-1": hasTo}' ng-show='hasFrom'>
+          <h4>Redditors who read these subreddits also read <a href='#' ng-href='//www.reddit.com/r/{{searchInput}}' target='_blank'>/r/{{searchInput}}</a>:</h4>
+          <div ng-repeat='sub in from' class='row list-group-item'>
+            <a href='#' ng-href='//www.reddit.com/r/{{sub}}' target="_blank" class='col-md-10 col-sm-10 col-xs-10'>
+              {{sub}}
+            </a>
+            <a href='#' ng-href='#!?q={{sub}}' class='col-md-1'
+                title='Find related subreddits'>
+              <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class='share' ng-controller='ShareController'>
+        <p><a href="https://github.com/anvaka/redsim">About</a></p>
+        <p><a href="https://anvaka.github.io/map-of-reddit/">Map of reddit</a></p>
+        <p><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fanvaka%2Fredsim" ng-click='share("twitter", $event)'>share to twitter</a></p>
+      </div>
+    </div>
+    <script src='bundle.js' type="text/javascript" charset="utf-8">
+    </script>
+  </body>
+</html>
