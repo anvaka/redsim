@@ -4,5 +4,5 @@ npm run build
  git init
  git add .
  git commit -m "Deployed to Github Pages"
- git push --force git@github.com:anvaka/redsim master:gh-pages
+ git push --force git@github.com:anvaka/redsim main:gh-pages
 )
