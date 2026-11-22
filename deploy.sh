@@ -1,4 +1,6 @@
 #!/bin/bash
+# Stop at the first error, so that a failed build is never pushed.
+set -e
 npm run build
 ( cd dist
  git init
